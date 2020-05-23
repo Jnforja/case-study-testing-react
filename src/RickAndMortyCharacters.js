@@ -9,7 +9,9 @@ const LOADING_STATUS = "LOADING";
 const ERROR_STATUS = "ERROR";
 const SHOWING_CHARACTERS_STATUS = "SHOWING_CHARACTERS";
 
-function RickAndMortyCharactersPage({ fetchCharacters }) {
+function RickAndMortyCharactersPage({
+  fetchCharacters = fetchCharactersFromServer,
+}) {
   const [{ status, characters }, setState] = useState({
     status: LOADING_STATUS,
     characters: undefined,
