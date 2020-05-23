@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/case-study-testing-react/static/css/main.1aef1b7b.chunk.css",
+    "main.js": "/case-study-testing-react/static/js/main.79845388.chunk.js",
+    "main.js.map": "/case-study-testing-react/static/js/main.79845388.chunk.js.map",
+    "runtime-main.js": "/case-study-testing-react/static/js/runtime-main.a14c09df.js",
+    "runtime-main.js.map": "/case-study-testing-react/static/js/runtime-main.a14c09df.js.map",
+    "static/js/2.9bd57c24.chunk.js": "/case-study-testing-react/static/js/2.9bd57c24.chunk.js",
+    "static/js/2.9bd57c24.chunk.js.map": "/case-study-testing-react/static/js/2.9bd57c24.chunk.js.map",
+    "index.html": "/case-study-testing-react/index.html",
+    "precache-manifest.7e60bf68593059582d404f5f72b32854.js": "/case-study-testing-react/precache-manifest.7e60bf68593059582d404f5f72b32854.js",
+    "service-worker.js": "/case-study-testing-react/service-worker.js",
+    "static/css/main.1aef1b7b.chunk.css.map": "/case-study-testing-react/static/css/main.1aef1b7b.chunk.css.map",
+    "static/js/2.9bd57c24.chunk.js.LICENSE.txt": "/case-study-testing-react/static/js/2.9bd57c24.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/case-study-testing-react/static/media/get_schwifty-webfont.979169ba.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a14c09df.js",
+    "static/js/2.9bd57c24.chunk.js",
+    "static/css/main.1aef1b7b.chunk.css",
+    "static/js/main.79845388.chunk.js"
+  ]
+}
