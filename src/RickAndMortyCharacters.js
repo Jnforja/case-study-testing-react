@@ -44,22 +44,26 @@ function RickAndMortyCharactersPage({ fetchCharacters }) {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <div>
-                  <img
-                    src={characters[0].image}
-                    alt={`${characters[0].name} avatar`}
-                  ></img>
-                  <p>{characters[0].name}</p>
-                </div>
-              </td>
-              <td>{characters[0].species}</td>
-              <td>{characters[0].gender}</td>
-              <td>
-                <span>{characters[0].status}</span>
-              </td>
-            </tr>
+            {characters.map(function toTableRow(character) {
+              return (
+                <tr key={character.id}>
+                  <td>
+                    <div>
+                      <img
+                        src={character.image}
+                        alt={`${character.name} avatar`}
+                      ></img>
+                      <p>{character.name}</p>
+                    </div>
+                  </td>
+                  <td>{character.species}</td>
+                  <td>{character.gender}</td>
+                  <td>
+                    <span>{character.status}</span>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       )}

@@ -2,5 +2,5 @@ User perspective tests:
 -Shows an empty message when there aren’t characters - DONE
 -Shows loading message while waiting for characters - DONE
 -Shows one character with expected info - DONE 
--Shows three characters, each with the expected info
+-Shows three characters, each with the expected info - DONE
 -Shows an error message when there was an error getting characters - DONE

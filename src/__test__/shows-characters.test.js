@@ -2,6 +2,7 @@ import React from "react";
 import {
   render,
   screen,
+  within,
   waitForElementToBeRemoved,
 } from "@testing-library/react";
 import { RickAndMortyCharactersPage } from "../RickAndMortyCharacters";
@@ -57,4 +58,60 @@ test("Shows 1 character", async function test() {
     );
   })();
   expect(fetchCharacters).toHaveBeenCalledWith();
+});
+
+test("Shows many characters", async function test() {
+  const characters = [
+    {
+      id: 25,
+      name: "Armorthy",
+      status: "Dead",
+      species: "unknown",
+      gender: "male",
+      image: "/mockArmorthyImageUrl",
+    },
+    {
+      id: 26,
+      name: "Arthricia",
+      status: "Alive",
+      species: "Alien",
+      gender: "Female",
+      image: "/mockArthriciaImageUrl",
+    },
+    {
+      id: 27,
+      name: "Artist Morty",
+      status: "Alive",
+      species: "Human",
+      gender: "Male",
+      image: "/mockArtistMortyImageUrl",
+    },
+  ];
+  const fetchCharacters = jest.fn().mockResolvedValueOnce(characters);
+
+  render(<RickAndMortyCharactersPage fetchCharacters={fetchCharacters} />);
+
+  await assertCharacterIsVisible(characters[0]);
+  await assertCharacterIsVisible(characters[1]);
+  await assertCharacterIsVisible(characters[2]);
+  expect(fetchCharacters).toHaveBeenCalledWith();
+
+  async function assertCharacterIsVisible(character) {
+    const characterRow = (await screen.findByText(character.name)).closest(
+      "tr"
+    );
+    const withinCharacterRow = within(characterRow);
+
+    expect(withinCharacterRow.getByText(character.name)).toBeVisible();
+    expect(withinCharacterRow.getByText(character.status)).toBeVisible();
+    expect(withinCharacterRow.getByText(character.species)).toBeVisible();
+    expect(withinCharacterRow.getByText(character.gender)).toBeVisible();
+    const characterAvatar = withinCharacterRow.getByAltText(
+      `${character.name} avatar`
+    );
+    expect(characterAvatar).toBeVisible();
+    expect(characterAvatar.src).toEqual(
+      expect.stringContaining(character.image)
+    );
+  }
 });
