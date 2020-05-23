@@ -4,3 +4,7 @@ User perspective tests:
 -Shows one character with expected info - DONE 
 -Shows three characters, each with the expected info - DONE
 -Shows an error message when there was an error getting characters - DONE
+
+Fetch characters tests:
+-On error fetching characters, rejects promise
+-On success fetching characters, returns them as expected
