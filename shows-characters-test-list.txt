@@ -7,4 +7,4 @@ User perspective tests:
 
 Fetch characters tests:
 -On error fetching characters, rejects promise - DONE
--On success fetching characters, returns them as expected
+-On success fetching characters, returns them as expected - DONE

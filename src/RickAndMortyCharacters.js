@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-function fetchCharactersFromServer() {
-  return Promise.reject();
+async function fetchCharactersFromServer() {
+  const res = await fetch("https://rickandmortyapi.com/api/character/");
+  return res.ok ? (await res.json()).results : Promise.reject();
 }
 
 const LOADING_STATUS = "LOADING";
