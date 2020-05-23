@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 
+function fetchCharactersFromServer() {
+  return Promise.reject();
+}
+
 const LOADING_STATUS = "LOADING";
 const ERROR_STATUS = "ERROR";
 const SHOWING_CHARACTERS_STATUS = "SHOWING_CHARACTERS";
@@ -80,4 +84,4 @@ function RickAndMortyCharactersPage({ fetchCharacters }) {
   }
 }
 
-export { RickAndMortyCharactersPage };
+export { RickAndMortyCharactersPage, fetchCharactersFromServer };

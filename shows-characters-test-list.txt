@@ -6,5 +6,5 @@ User perspective tests:
 -Shows an error message when there was an error getting characters - DONE
 
 Fetch characters tests:
--On error fetching characters, rejects promise
+-On error fetching characters, rejects promise - DONE
 -On success fetching characters, returns them as expected
