@@ -3,21 +3,38 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.0.4",
+    "@testing-library/user-event": "10.1.0",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "eslint-plugin-testing-library": "^3.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
+    "eject": "react-scripts eject",
+    "lint": "eslint . --ignore-path=.gitignore"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "plugin:testing-library/react"
+    ],
+    "rules": {
+      "testing-library/await-async-query": "error",
+      "testing-library/await-async-utils": "error",
+      "testing-library/no-await-sync-query": "error",
+      "testing-library/no-debug": "error",
+      "testing-library/no-dom-import": "error",
+      "testing-library/no-manual-cleanup": "error",
+      "testing-library/no-wait-for-empty-callback": "error",
+      "testing-library/prefer-presence-queries": "error",
+      "testing-library/prefer-wait-for": "error"
+    }
   },
   "browserslist": {
     "production": [
