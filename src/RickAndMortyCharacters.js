@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-function RickAndMortyCharactersPage() {
+function RickAndMortyCharactersPage({ fetchCharacters }) {
+  useEffect(
+    function fetchCharactersOnStart() {
+      fetchCharacters();
+    },
+    [fetchCharacters]
+  );
   return (
     <div>
-      <p>Hello</p>
+      <p>There aren't characters to show</p>
     </div>
   );
 }
