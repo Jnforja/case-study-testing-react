@@ -34,29 +34,18 @@ test("shows error message when there's an error fetching characters", async func
 });
 
 test("Shows 1 character", async function test() {
-  const fetchCharacters = jest.fn().mockResolvedValueOnce([
-    {
-      id: 25,
-      name: "Armorthy",
-      status: "Dead",
-      species: "unknown",
-      gender: "male",
-      image: "/mockArmorthyImageUrl",
-    },
-  ]);
+  const armorthy = {
+    id: 25,
+    name: "Armorthy",
+    status: "Dead",
+    species: "unknown",
+    gender: "male",
+    image: "/mockArmorthyImageUrl",
+  };
+  const fetchCharacters = jest.fn().mockResolvedValueOnce([armorthy]);
   render(<RickAndMortyCharactersPage fetchCharacters={fetchCharacters} />);
 
-  await (async function assertArmorthyIsVisible() {
-    expect(await screen.findByText("Armorthy")).toBeVisible();
-    expect(await screen.findByText("Dead")).toBeVisible();
-    expect(await screen.findByText("unknown")).toBeVisible();
-    expect(await screen.findByText("male")).toBeVisible();
-    const armorthyAvatar = await screen.findByAltText("Armorthy avatar");
-    expect(armorthyAvatar).toBeVisible();
-    expect(armorthyAvatar.src).toEqual(
-      expect.stringContaining("/mockArmorthyImageUrl")
-    );
-  })();
+  await assertCharacterIsVisible(armorthy);
   expect(fetchCharacters).toHaveBeenCalledWith();
 });
 
@@ -95,23 +84,19 @@ test("Shows many characters", async function test() {
   await assertCharacterIsVisible(characters[1]);
   await assertCharacterIsVisible(characters[2]);
   expect(fetchCharacters).toHaveBeenCalledWith();
-
-  async function assertCharacterIsVisible(character) {
-    const characterRow = (await screen.findByText(character.name)).closest(
-      "tr"
-    );
-    const withinCharacterRow = within(characterRow);
-
-    expect(withinCharacterRow.getByText(character.name)).toBeVisible();
-    expect(withinCharacterRow.getByText(character.status)).toBeVisible();
-    expect(withinCharacterRow.getByText(character.species)).toBeVisible();
-    expect(withinCharacterRow.getByText(character.gender)).toBeVisible();
-    const characterAvatar = withinCharacterRow.getByAltText(
-      `${character.name} avatar`
-    );
-    expect(characterAvatar).toBeVisible();
-    expect(characterAvatar.src).toEqual(
-      expect.stringContaining(character.image)
-    );
-  }
 });
+
+async function assertCharacterIsVisible(character) {
+  const characterRow = (await screen.findByText(character.name)).closest("tr");
+  const withinCharacterRow = within(characterRow);
+
+  expect(withinCharacterRow.getByText(character.name)).toBeVisible();
+  expect(withinCharacterRow.getByText(character.status)).toBeVisible();
+  expect(withinCharacterRow.getByText(character.species)).toBeVisible();
+  expect(withinCharacterRow.getByText(character.gender)).toBeVisible();
+  const characterAvatar = withinCharacterRow.getByAltText(
+    `${character.name} avatar`
+  );
+  expect(characterAvatar).toBeVisible();
+  expect(characterAvatar.src).toEqual(expect.stringContaining(character.image));
+}
