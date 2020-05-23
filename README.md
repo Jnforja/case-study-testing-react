@@ -1,6 +1,6 @@
 This repository contains the code for the case-study shown in the article [Not sure how to write tests for you React app? Read this case study.](https://joaoforja.com/blog/how-to-write-tests-react-app-case-study/)
 
-Demo: https://jnforja.github.io/case-study-testing
+Demo: https://jnforja.github.io/case-study-testing-react/
 
 This project was bootstrapped with Create React App. So you can use yarn start to run the application and yarn test to run the tests.
 
