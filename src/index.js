@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import { RickAndMortyCharactersPage } from "./RickAndMortyCharacters";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <RickAndMortyCharactersPage />
   </React.StrictMode>,
   document.getElementById("root")
 );

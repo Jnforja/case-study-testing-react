@@ -1,0 +1,5 @@
+User perspective tests:
+-Shows an empty message when there aren’t characters
+-Shows one character with expected info
+-Shows three characters, each with the expected info
+-Shows an error message when there was an error getting characters
