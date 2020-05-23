@@ -1,8 +1,169 @@
-body {
+@font-face {
+  font-family: "get_schwiftyregular";
+  src: url("fonts/get_schwifty-webfont.woff2") format("woff2"),
+    url("fonts/get_schwifty-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  /* Fonts */
+  --font-plain: Helvetica Neue, Helvetica, Arial, sans-serif;
+  --font-special: get_schwiftyregular, Helvetica, sans-serif;
+
+  /* Colors */
+  --color-dark: #121212;
+  --color-high-elevation: #383838;
+  --color-medium-elevation: #333333;
+  --color-high-emphasis: hsl(0, 0%, 87%);
+  --color-mid-emphasis: hsl(0, 0%, 65%);
+
+  /* Spacing scale */
+  --ratio: 1.4;
+  --s-5: calc(
+    var(--s0) / var(--ratio) / var(--ratio) / var(--ratio) / var(--ratio) /
+      var(--ratio)
+  );
+  --s-4: calc(
+    var(--s0) / var(--ratio) / var(--ratio) / var(--ratio) / var(--ratio)
+  );
+  --s-3: calc(var(--s0) / var(--ratio) / var(--ratio) / var(--ratio));
+  --s-2: calc(var(--s0) / var(--ratio) / var(--ratio));
+  --s-1: calc(var(--s0) / var(--ratio));
+  --s0: 1rem;
+  --s1: calc(var(--s0) * var(--ratio));
+  --s2: calc(var(--s0) * var(--ratio) * var(--ratio));
+  --s3: calc(var(--s0) * var(--ratio) * var(--ratio) * var(--ratio));
+  --s4: calc(
+    var(--s0) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio)
+  );
+  --s5: calc(
+    var(--s0) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) *
+      var(--ratio)
+  );
+
+  /* Line height */
+  --line-height: var(--ratio);
+  --line-height-small: calc(0.8 * var(--ratio));
+
+  --border-thin: var(--s-5);
+  --border-thick: var(--s-2);
+
+  --rounded: 8px;
+}
+
+:root {
+  line-height: var(--ratio);
+  font-size: calc(0.333vw + 1em);
+  font-family: var(--font-plain);
+  background-color: var(--color-dark);
+  color: var(--color-high-emphasis);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  background-color: inherit;
+  font-family: inherit;
+  color: inherit;
+  overflow-wrap: break-word;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  border-style: solid;
+  border-width: 0;
+  border-color: currentColor;
+}
+
+body {
+  margin: 5rem auto;
+}
+
+.stack > * + * {
+  margin-top: var(--s2);
+}
+
+h1 {
+  text-align: center;
+  color: #0dadc3;
+  font-family: var(--font-special);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  padding: var(--s0);
+}
+
+table {
+  width: 100%;
+  min-width: 35rem;
+  max-width: 50rem;
+  border-spacing: 0;
+  margin: 0 auto;
+  caption-side: bottom;
+}
+
+table caption {
+  margin-top: var(--s-1);
+}
+
+table thead th:last-child {
+  border-top-right-radius: var(--rounded);
+}
+table thead th:first-child {
+  border-top-left-radius: var(--rounded);
+}
+
+table tr:last-child td:first-child {
+  border-bottom-left-radius: var(--rounded);
+}
+
+table tr:last-child td:last-child {
+  border-bottom-right-radius: var(--rounded);
+}
+
+thead {
+  background-color: var(--color-medium-elevation);
+  color: var(--color-mid-emphasis);
+}
+
+tbody {
+  background-color: var(--color-high-elevation);
+}
+
+td {
+  padding: var(--s0);
+  border-top: 1px solid var(--color-dark);
+}
+
+th {
+  text-align: left;
+  padding: var(--s0);
+}
+
+img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.name-cell {
+  display: flex;
+  align-items: center;
+}
+.name-cell > * + * {
+  margin-left: var(--s-1);
+}
+
+.status {
+  color: #445d22;
+  background-color: #e5f3d2;
+  padding: 0 var(--s-2);
+  font-size: 0.825rem;
+  font-weight: 600;
+  border-radius: 9999px;
+}
+
+.text-align\:center {
+  text-align: center;
 }

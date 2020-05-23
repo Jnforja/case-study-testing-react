@@ -31,58 +31,69 @@ function RickAndMortyCharactersPage({
     [fetchCharacters]
   );
   return (
-    <div>
-      {status === LOADING_STATUS && renderLoadingMessage()}
-      {status === ERROR_STATUS && renderErrorMessage()}
-      {status === SHOWING_CHARACTERS_STATUS && renderCharacters()}
+    <div className="stack">
+      <header>
+        <h1>Where's my Pickle Rick!?</h1>
+      </header>
+      <main>
+        {status === LOADING_STATUS && renderLoadingMessage()}
+        {status === ERROR_STATUS && renderErrorMessage()}
+        {status === SHOWING_CHARACTERS_STATUS && renderCharacters()}
+      </main>
     </div>
   );
 
   function renderLoadingMessage() {
-    return <p>Loading...</p>;
+    return <p className="text-align:center">Loading...</p>;
   }
 
   function renderErrorMessage() {
-    return <p>There was an error. Please reload page.</p>;
+    return (
+      <p className="text-align:center">
+        There was an error. Please reload page.
+      </p>
+    );
   }
 
   function renderCharacters() {
     return characters.length === 0 ? (
-      <p>There aren't characters to show</p>
+      <p className="text-align:center">There aren't characters to show</p>
     ) : (
-      <table>
-        <caption>Rick and Morty characters</caption>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Species</th>
-            <th>gender</th>
-            <th>status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {characters.map(function toTableRow(character) {
-            return (
-              <tr key={character.id}>
-                <td>
-                  <div>
-                    <img
-                      src={character.image}
-                      alt={`${character.name} avatar`}
-                    ></img>
-                    <p>{character.name}</p>
-                  </div>
-                </td>
-                <td>{character.species}</td>
-                <td>{character.gender}</td>
-                <td>
-                  <span>{character.status}</span>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <article className="table-wrapper">
+        <table>
+          <caption>Rick and Morty characters</caption>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Species</th>
+              <th>gender</th>
+              <th>status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {characters.map(function toTableRow(character) {
+              return (
+                <tr key={character.id}>
+                  <td>
+                    <div className="name-cell">
+                      <img
+                        src={character.image}
+                        alt={`${character.name} avatar`}
+                      ></img>
+                      <p>{character.name}</p>
+                    </div>
+                  </td>
+                  <td>{character.species}</td>
+                  <td>{character.gender}</td>
+                  <td>
+                    <span className="status">{character.status}</span>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </article>
     );
   }
 }
