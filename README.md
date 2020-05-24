@@ -1,4 +1,4 @@
-This repository contains the code for the case-study shown in the article [Not sure how to write tests for you React app? Read this case study.](https://joaoforja.com/blog/how-to-write-tests-react-app-case-study/)
+This repository contains the code for the case-study shown in the article [Not sure how to write tests for your React app? Read this case study.](https://joaoforja.com/blog/how-to-write-tests-react-app-case-study/)
 
 Demo: https://jnforja.github.io/case-study-testing-react/
 
