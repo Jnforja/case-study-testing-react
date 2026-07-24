@@ -52,5 +52,5 @@ React · Testing Library · Jest · MirageJS · Create React App
 
 ## Status
 
-Published as an educational case study. For my current work and recent
+Archived as an educational case study. For my current work and recent
 engineering experience, visit [joaoforja.com](https://joaoforja.com).
